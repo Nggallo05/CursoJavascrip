@@ -2,7 +2,7 @@ alert(" Bienvenido a nuestra tienda !")
 
 do{
     let productos = parseInt(prompt(catalogo))
-    if(productos === 4) break;
+    if(productos === 5) break;
     let cant = parseInt(prompt(cantidad))
 
     CanastaDeCompras(productos,cant);
