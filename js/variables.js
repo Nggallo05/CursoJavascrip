@@ -17,7 +17,7 @@ class Articulos {
         this.stock = stock; 
     }
     CalculoPrecio() {
-        this.precio = this.precio*cantidad;
+        this.precio = this.precio * cantidad;
     }
     
     CalculoStock() {
