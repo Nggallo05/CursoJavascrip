@@ -30,7 +30,7 @@ let pantalones = new Articulos ('Pantalones',2700,8);
 let zapatillas = new Articulos ('Zapatillas',4100,6);
 let accesorios = new Articulos ('Accesorios',500,20);
 
-console.log(remeras,pantalones,zapatillas,acceso)
+console.log(remeras,pantalones,zapatillas,accesorios)
 
 /*Lista de precios de los productos */
 
