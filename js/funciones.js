@@ -7,33 +7,22 @@ const stockDisponible = (cantidad,stock) => {
     }
     else return true
 }
-const CanastaDeCompras = (productos ,cantidad) => {
-    switch(productos){
-        case 1:
-            if(stockDisponible(cantidad,stockRemeras)){
-                total += (cantidad*precioRemeras)
-                stockRemeras -= cantidad
-                alert('Remera agregada a la compra')
-            }
-            break;
-        
-        case 2:
-            if(stockDisponible(cantidad,stockPantalones)){
-                total += (cantidad*stockPantalones)
-                stockPantalones -= cantidad
-                alert('Pantalon agregado a la compra')
-            }
-            break;
 
-        case 3:
-            if(stockDisponible(cantidad,stockZapatillas)){
-                total += (cantidad*stockZapatillas)
-                stockZapatillas -= cantidad
-                alert('Zapatillas agregadas a la compra')
-            }
-            break;
+const mostrarCatalogo = () =>{
+    let catalogo = "Nuestros productos: \n"
+    articulos.forEach((articulos) => {
+        catalogo += + articulos.id + "-" + articulos.nombre + "\n";
+    });
+    catalogo += + (articulos.length + 1) + "-Salir";
+    return parseInt(prompt(catalogo));
+};
 
-        default:
-            alert('Opcion no valida')
+
+const CanastaDeCompras = (productos,cantidad) => {
+    const found = articulos.find(articulos => articulos.id === productos)
+    if(stockDisponible(cantidad, found.stock)){
+        total += (cantidad * found.precio);
+                articulos[productos-1].stock -= cantidad;
+                alert(`${found.nombre} ha sido agregado a la compra`)
     }
 }
