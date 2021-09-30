@@ -1,10 +1,14 @@
+const articulos = JSON.parse(datos);
+
+
+
 const mostrarCatalogo = () =>{
     let catalogo = "Nuestros productos: \n"
     articulos.forEach((articulos) => {
         catalogo += + articulos.id + "-" + articulos.nombre + "\n";
     });
-    catalogo += + (articulos.length + 1) + "-Ver carrito" + "\n";
-    catalogo += + (articulos.length + 2) + "-Salir";
+    catalogo += (articulos.length + 1) + "-Ver carrito" + "\n";
+    catalogo += (articulos.length + 2) + "-Salir";
     return parseInt(prompt(catalogo));
 };
 
@@ -15,62 +19,67 @@ const stockDisponible = (cantidad,stock) => {
     return false;
     }
     else return true
-}
+    }
+
 
 
 const canastaDeCompras = (productos,cantidad) => {
+    
     const found = articulos.find(articulos => articulos.id === productos)
     
-    carrito = localStorage.getItem('total')
+    if(stockDisponible(cantidad,found.stock)){
+        
+        
+        carrito = localStorage.getItem('carrito');
     
-    if(!carrito){
-        carrito = []
-    }else{
-        carrito = JSON.parse(total);
-    }
+        if(!carrito){
+            carrito = [];
+        }else{
+            carrito = JSON.parse(carrito);
+        }
 
-    let items = {cant:cantidad, precio: cantidad * found.precio, found};
+        let items = {cant:cantidad, precio: cantidad * found.precio, found};
 
-    carrito.push(items);
-    carrito = JSON.stringify(total)
-    localStorage.setItem('total',total)
+        carrito.push(items);
+        carrito = JSON.stringify(carrito)
+        localStorage.setItem('carrito',carrito)
     
-    articulos[productos-1].stock -= cantidad;
-    alert(`${found.nombre} ha sido agregado a la compra`)
+        articulos[productos-1].stock -= cantidad;
+        alert(`${found.nombre} ha sido agregado a la compra`)
     }
+}
 
 
-    const mostrarCompra = () =>{
-        let verCarrito = localStorage.getItem('total');
+const realizarCompra = () =>{
+        let verCarrito = localStorage.getItem('carrito');
         verCarrito = JSON.parse(verCarrito)
         if(!verCarrito){
             return false;
         }else{
             let mostrarDatos = "";
-            let compra = 0;
+            let compraTotal = 0;
             verCarrito.forEach(item =>{
-                mostrarDatos+= `Producto: ${item.found.nombre} Cantidad ${item.cant} Precio ${item.precio} \n`
-                compra += item.precio;
+                mostrarDatos += `Producto: ${item.found.nombre} Cantidad ${item.cant} Precio ${item.precio} \n`
+                compraTotal += item.precio;
             });
-            verCarrito += `El precio total es ${total}`
-            alert(verCarrito)
+            mostrarDatos += `El precio total es ${compraTotal}`
+            alert(mostrarDatos)
         }
         localStorage.clear();
 
     }; 
 
 
-    const verCompra = () =>{
-        let verCarrito = localStorage.getItem('total');
-        verCarrito = JSON.parse(verCarrito)
+const verCompra = () =>{
+        let verCarrito = localStorage.getItem('carrito');
+        verCarrito = JSON.parse(verCarrito);
         if(!verCarrito){
             alert("Aun no tienes productos agregados al carrito");
         }else{
             let mostrarDatos = "";
-            
             verCarrito.forEach(item =>{
-                mostrarDatos+= `Producto: ${item.found.nombre} Cantidad ${item.cant} Precio ${item.precio} \n`
+                mostrarDatos += `Producto: ${item.found.nombre} Cantidad ${item.cant} Precio ${item.precio} \n`
             });
-            alert(verCarrito)
+            alert(mostrarDatos);
         }
-    }; 
+    };

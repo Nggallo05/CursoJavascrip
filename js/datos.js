@@ -1,1 +1,1 @@
-const datos = '[{"id": 1, "nombre": "Remeras", "precio": 1900, "stock": 20}, {"id":2, "nombre": "Pantalones", "precio": 2700, "stock": 10},{"id":3, "nombre": "Zapatillas", "precio": 4100, "stock": 9},{"id":4, "nombre": "Accesorios", "precio": 700, "stock": 25},]';
+const datos ='[{"id": 1, "nombre": "Remeras", "precio": 1900, "stock": 20}, {"id":2, "nombre": "Pantalones", "precio": 2700, "stock": 10},{"id":3, "nombre": "Zapatillas", "precio": 4100, "stock": 9},{"id":4, "nombre": "Accesorios", "precio": 700, "stock": 25}]';
