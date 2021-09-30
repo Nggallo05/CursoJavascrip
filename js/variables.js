@@ -17,7 +17,7 @@ function comparar (a,b){
 console.log(descuentoContado.sort(comparar));
 
 
-let total = 0;
+let total = [];
 let respuesta = 'Si';
 
 

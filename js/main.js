@@ -2,18 +2,26 @@ alert(" Bienvenido a nuestra tienda !")
 
 do{
     let productos = mostrarCatalogo();
-    if(productos === articulos.length + 1) break;
-    let cant = parseInt(prompt(cantidad))
+    if(productos === articulos.length +1){
+        mostrarCompra()
+    }else{
+        
+    if(productos === articulos.length + 2) break;
+    let cant = parseInt(prompt(cantidad));
+        
+        canastaDeCompras(productos,cant);
+    }
+    
 
-    CanastaDeCompras(productos,cant);
+    
 
     respuesta = prompt('¿Quiere agregar mas productos?')
 
 
 }while(respuesta === 'Si' || respuesta === "si");
 
-if(total > 0){
-alert(`El precio de su compra es de $${total}`);
-}
+
+mostrarCompra();
+
 
 alert('Muchas gracias por su compra!')
