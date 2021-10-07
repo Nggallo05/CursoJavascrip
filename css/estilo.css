@@ -4,3 +4,18 @@
     box-sizing: border-box;
 }
 
+body{
+    background-image: url(../medios/loading.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    position: relative;
+
+}
+.titulo{
+    text-align: center;
+}
+
+div{
+    border: 1px solid;
+    margin: 2rem;
+}

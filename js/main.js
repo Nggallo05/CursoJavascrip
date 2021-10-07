@@ -22,17 +22,22 @@ realizarCompra();
 
 alert('Muchas gracias por su compra!')
 
-let titulo = document.createElement("h1");
+const arrayProductos = JSON.parse(datos)
 
-titulo.textContent = "BIENVENIDOS A NUESTRA TIENDA ONLINE!";
+let contenedor = document.createElement('div');
 
-document.body.appendChild(titulo);
+const boton = document.getElementById("boton");
 
-mostrarProductos(datos); { 
-    const mercaderia = document.createElement("div")
-    mercaderia.classList.add("mercaderia");
+boton.addEventListener("click", () => {
+    arrayProductos.forEach((p) => {
+        let contenedorArticulos = document.createElement('div')
+        contenedorArticulos.innerHTML = `
+                    <h1>${p.nombre}</h1>
+                    <h2> Precio $ ${p.precio}</h3>
+                    <h3> Stock ${p.stock}</h3>
+        `;
+        contenedor.appendChild(contenedorArticulos);
+    });
 
-    const nombreMercaderia = document.createElement("h3");
-    nombreMercaderia.textContent = `${articulos.nombre}`
-    mercaderia.body.appendChild(mercaderia)
-}
+    document.body.appendChild(contenedor);
+})
