@@ -7,5 +7,5 @@ class articulos {
     }
 }
 
-console.log(articulos)
+
 
