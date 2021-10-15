@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url(/estilos/imagen1.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.oculto {
+    display: none;
+}
+
+.articulo {
+    background-color: lightslategray;
+    margin: 1rem;
+}
