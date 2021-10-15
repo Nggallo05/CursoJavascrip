@@ -6,3 +6,6 @@ class articulos {
         this.stock = stock;
     }
 }
+
+console.log(articulos)
+
