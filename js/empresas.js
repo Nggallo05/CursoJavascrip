@@ -5,12 +5,13 @@ const empresas = [
 {nombre: 'Bambi S.R.L', cuit:30-12489754-1, direccion: 'Pellegrini 635'},
 ];
 
-let verEmpresas = document.getElementById("mostrarEmpresas");
-verEmpresas.addEventListener("click",listaEmpresas)
+/*let verEmpresas = document.getElementById("mostrarEmpresas");
+verEmpresas.addEventListener("click",listaEmpresas)*/
 
-function listaEmpresas() {
+
+/*function listaEmpresas() {
     document.querySelector("#verEmpresas").classList.toggle("oculto");
-}
+}*/
 
 for (const empresa of empresas) {
     $('#verEmpresas').append(`
@@ -18,5 +19,11 @@ for (const empresa of empresas) {
         <h2> Nombre: ${empresa.nombre}</h2>
         <b> Cuit: ${empresa.cuit} </b>
         <p> Direccion ${empresa.direccion} </p>
+        
     </div>`)
 }
+
+$('#mostrarEmpresas').click (() => {
+    $('#verEmpresas').toggle('slow');
+} )
+
