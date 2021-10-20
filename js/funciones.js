@@ -6,6 +6,7 @@ let formularioArticulos = document.getElementById("formularioArticulos");
 formularioArticulos.addEventListener("submit",guardarArticulos)
 
 
+
 function cargarArticulos(){
     let listadoArticulos = JSON.parse(localStorage.getItem("listadoArticulos"));
     if(listadoArticulos == null) {
@@ -34,7 +35,6 @@ function guardarArticulos(e) {
 
     document.getElementById('formularioArticulos').reset();
 }
-
 
 function armarArticulo (elemento) {
     const articulo = document.createElement("div");
